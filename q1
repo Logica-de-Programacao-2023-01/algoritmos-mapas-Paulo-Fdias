@@ -1,0 +1,32 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func countWords(s string) map[string]int {
+	// Inicializar o mapa para armazenar as contagens
+	wordCount := make(map[string]int)
+
+	// Dividir a string em palavras usando espaços em branco como separadores
+	words := strings.Fields(s)
+
+	// Percorrer todas as palavras e incrementar as contagens
+	for _, word := range words {
+		wordCount[word]++
+	}
+
+	return wordCount
+}
+
+func main() {
+	text := "Olá, mundo! Olá, Go! Olá, ChatGPT! Mundo, Go, Go, Go!"
+
+	wordCount := countWords(text)
+
+	// Imprimir as palavras e suas contagens
+	for word, count := range wordCount {
+		fmt.Printf("%s: %d\n", word, count)
+	}
+}
